@@ -77,6 +77,10 @@ jobs:
     - name: Prebuild for Android
       run: npx expo prebuild --platform android --clean
 
+    - name: Enable cleartext traffic for HTTP
+      run: |
+        sed -i 's/android:enableOnBackInvokedCallback="false"/android:enableOnBackInvokedCallback="false" android:usesCleartextTraffic="true"/g' android/app/src/main/AndroidManifest.xml
+
     - name: Build APK
       run: |
         cd android
