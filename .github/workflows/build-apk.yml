@@ -85,8 +85,9 @@ jobs:
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
-        name: SmartChatix-APK
+        name: SmartChatix-APK-v2
         path: android/app/build/outputs/apk/release/app-release.apk
+        retention-days: 30
 
     - name: Create Release
       if: github.ref == 'refs/heads/main'
